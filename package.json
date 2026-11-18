@@ -1,0 +1,41 @@
+{
+  "name": "myrkls-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && node scripts/generate_sitemap.mjs && node scripts/verify_sitemap.mjs",
+    "preview": "vite preview",
+    "test": "node scripts/verify_flows.cjs",
+    "test:shopify": "node scripts/verify_shopify.cjs && node scripts/verify_shopify_cart.cjs && node scripts/verify_customer_account.cjs && node scripts/verify_phase7.cjs && node scripts/verify_analytics.cjs",
+    "test:cms-schema": "node --experimental-strip-types scripts/verify_shopify_cms_schema.ts",
+    "typecheck:cms": "tsc --noEmit -p tsconfig.cms.json",
+    "cms:schema:check": "node --experimental-strip-types scripts/shopify-cms-schema-check.ts",
+    "cms:schema:preflight": "node --experimental-strip-types scripts/shopify-cms-schema-preflight.ts",
+    "test:phase7:browser": "node scripts/verify_phase7_browser.cjs",
+    "test:phase9": "node scripts/verify_phase9.cjs"
+  },
+  "dependencies": {
+    "framer-motion": "^11.11.11",
+    "lenis": "^1.3.26",
+    "lucide-react": "^0.454.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "puppeteer-core": "^25.14.0",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3",
+    "vite": "^7.3.1"
+  }
+}
